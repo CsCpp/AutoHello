@@ -17,12 +17,12 @@ namespace AutoHello
           var result=  MessageBox.Show("Запускать меня при старте ПК?", "Hello", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Asterisk); 
         if (result == DialogResult.Yes) 
             {
-                SetAutoRunValue(true, Assembly.GetExecutingAssembly().Location);
+                SetAutoRunValue(true, Application.ExecutablePath);
                 Application.Exit();
             }
         else if(result == DialogResult.No) 
             {
-                SetAutoRunValue(false, Assembly.GetExecutingAssembly().Location);
+                SetAutoRunValue(false, Application.ExecutablePath);
                 Application.Exit();
             }
         else
