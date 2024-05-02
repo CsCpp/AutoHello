@@ -37,7 +37,11 @@
             ClientSize = new Size(427, 264);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
+            Opacity = 0D;
+            ShowIcon = false;
+            ShowInTaskbar = false;
             Text = "Hello";
+            Load += Form1_Load;
             ResumeLayout(false);
         }
 
