@@ -13,8 +13,22 @@ namespace AutoHello
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SetAutoRunValue(true, Assembly.GetExecutingAssembly().Location);
-            MessageBox.Show("Это автоматическое сообщение", "Hello", MessageBoxButtons.OK,MessageBoxIcon.Asterisk); 
+           
+          var result=  MessageBox.Show("Запускать меня при старте ПК?", "Hello", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Asterisk); 
+        if (result == DialogResult.Yes) 
+            {
+                SetAutoRunValue(true, Assembly.GetExecutingAssembly().Location);
+                Application.Exit();
+            }
+        else if(result == DialogResult.No) 
+            {
+                SetAutoRunValue(false, Assembly.GetExecutingAssembly().Location);
+                Application.Exit();
+            }
+        else
+            {
+                Application.Exit();
+            }
         }
         private bool SetAutoRunValue(bool autorun, string path)
         {
